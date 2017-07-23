@@ -5,55 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style>
-        body {
-            font-family: Verdana;
-            background: dodgerblue;
-        }
-
-        .login-wrap-title {
-            text-align: center;
-            font-size: 30px;
-            font-weight: bold;
-            padding: 20px;
-        }
-
-        .input-text-box {
-            width: 50%;
-            margin: 5px auto auto auto;
-            border-radius: 4px;
-            display: block;
-            font-size: 20px;
-        }
-
-        .label-element {
-            width: 50%;
-            margin: auto;
-            display: block;
-        }
-
-        .login-wrap-body-element {
-            text-align: center;
-            padding: 5px;
-        }
-
-        .login-wrap-body {
-            font-size: 20px;
-        }
-
-        .button {
-            width: 120px;
-            height: 30px;
-            background: gray;
-            border: none;
-            font-weight: 600;
-        }
-
-            .button:hover {
-                background: darkgray;
-                cursor: pointer;
-            }
-    </style>
+    <link rel="stylesheet" type="text/css" href="Style.css" />
 </head>
 <body>
     <form id="form1" runat="server">

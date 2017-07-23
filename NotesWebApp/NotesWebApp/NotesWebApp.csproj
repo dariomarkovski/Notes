@@ -91,6 +91,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Style.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

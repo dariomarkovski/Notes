@@ -1,0 +1,161 @@
+﻿body {
+    background: rgb(153,217,234);
+    margin: 0px;
+    font-family: Verdana;
+}
+
+.header-wrap {
+    background: rgb(0,162,232);
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
+.header-element-username {
+    display: block;
+}
+
+.header-element-logout {
+    display: block;
+    border: none;
+    background: inherit;
+    color: white;
+    font-size: 20px;
+    padding: 0px;
+}
+
+    .header-element-logout:hover {
+        cursor: pointer;
+        color: lightgray;
+    }
+
+.center-div {
+    width: 50%;
+    margin: 30px auto;
+}
+
+    .center-div div {
+        width: 100%;
+    }
+
+table {
+    width: 100%;
+    background: rgb(239, 228, 176);
+}
+
+th {
+    font-size: 25px;
+}
+
+td {
+    font-size: 16px;
+    text-align: center;
+}
+
+    td:hover {
+        background: goldenrod;
+    }
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.title-box, .body-box {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.title-box {
+    background: goldenrod;
+    font-size: 25px;
+    text-align: center;
+    border-bottom: none;
+}
+
+.body-box {
+    background: gold;
+    font-size: 14px;
+    border-top: none;
+}
+
+textarea {
+    resize: none;
+    overflow: hidden;
+}
+
+.btn-div {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    display: inline-block;
+    width: 120px;
+    height: 30px;
+    background: gray;
+    border: none;
+    font-weight: 600;
+    margin: 5px;
+}
+
+    .button:hover {
+        background: darkgray;
+        cursor: pointer;
+    }
+
+.help-span {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+}
+
+.input-text-box {
+    width: 50%;
+    margin: 5px auto auto auto;
+    border-radius: 4px;
+    display: block;
+    font-size: 20px;
+}
+
+.label-element {
+    width: 50%;
+    margin: auto;
+    display: block;
+}
+
+.login-wrap-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.login-wrap-body-element {
+    text-align: center;
+    padding: 5px;
+}
+
+.login-wrap-body {
+    font-size: 20px;
+}
+
+.register-wrap-body-element {
+    text-align: center;
+    padding: 5px;
+}
+
+.register-wrap-body {
+    font-size: 20px;
+}
+
+.register-wrap-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+}
