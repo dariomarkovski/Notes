@@ -74,15 +74,8 @@ namespace NotesWebApp
             {
                 titleBox.Text = gvNotes.DataKeys[gvNotes.SelectedIndex].Values["Title"].ToString();
                 bodyBox.Text = gvNotes.DataKeys[gvNotes.SelectedIndex].Values["Text"].ToString();
-                titleBox.Visible = true;
-                bodyBox.Visible = true;
-                btnDelete.Visible = true;
-                btnUpdate.Visible = true;
-                btnUnselect.Visible = true;
-            }
-            else
-            {
-                unselected();
+                titleBox.Visible = bodyBox.Visible = btnDelete.Visible = btnUpdate.Visible = btnUnselect.Visible = true;
+                newNoteBtn.Visible = cancelBtn.Visible = addBtn.Visible = false;
             }
         }
 
@@ -90,7 +83,7 @@ namespace NotesWebApp
         {
             if (gvNotes.SelectedIndex != -1)
             {
-                string id = gvNotes.SelectedRow.Cells[0].Text;
+                string id = gvNotes.DataKeys[gvNotes.SelectedIndex].Values["NoteId"].ToString();
                 string constr = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
                 SqlConnection con = new SqlConnection(constr);
                 string deleteQuery = "DELETE FROM Notes WHERE NoteId=@id";
@@ -117,13 +110,9 @@ namespace NotesWebApp
 
         private void unselected()
         {
-            titleBox.Text = "";
-            bodyBox.Text = "";
-            titleBox.Visible = false;
-            bodyBox.Visible = false;
-            btnDelete.Visible = false;
-            btnUpdate.Visible = false;
-            btnUnselect.Visible = false;
+            titleBox.Text = bodyBox.Text = "";
+            titleBox.Visible = bodyBox.Visible = btnDelete.Visible = btnUpdate.Visible = btnUnselect.Visible = cancelBtn.Visible = addBtn.Visible = false;
+            newNoteBtn.Visible = true;
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
@@ -135,6 +124,31 @@ namespace NotesWebApp
         {
             gvNotes.SelectedIndex = -1;
             unselected();
+        }
+
+        protected void newNoteBtn_Click(object sender, EventArgs e)
+        {
+            bodyBox.Visible = titleBox.Visible = cancelBtn.Visible = addBtn.Visible = true;
+            newNoteBtn.Visible = false;
+        }
+
+        protected void cancelBtn_Click(object sender, EventArgs e)
+        {
+            unselected();
+        }
+
+        protected void addBtn_Click(object sender, EventArgs e)
+        {
+            if (titleBox.Text.Trim() != "" && bodyBox.Text.Trim() != "")
+            {
+                NoteService.NoteServiceSoapClient noteServiceClient = new NoteService.NoteServiceSoapClient();
+                if (noteServiceClient.InsertNote(Session["username"].ToString(), titleBox.Text.Trim(), bodyBox.Text.Trim()))
+                {
+                    filGridView();
+                    gvNotes.SelectedIndex = -1;
+                    unselected();
+                }
+            }
         }
     }
 }

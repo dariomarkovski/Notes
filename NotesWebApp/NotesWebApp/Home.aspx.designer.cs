@@ -67,6 +67,15 @@ namespace NotesWebApp {
         protected global::System.Web.UI.WebControls.TextBox bodyBox;
         
         /// <summary>
+        /// newNoteBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button newNoteBtn;
+        
+        /// <summary>
         /// btnDelete control.
         /// </summary>
         /// <remarks>
@@ -92,6 +101,24 @@ namespace NotesWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUnselect;
+        
+        /// <summary>
+        /// cancelBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cancelBtn;
+        
+        /// <summary>
+        /// addBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addBtn;
         
         /// <summary>
         /// errorLabel control.

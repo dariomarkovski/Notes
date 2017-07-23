@@ -58,7 +58,7 @@
         }
 
         td {
-            font-size: 14px;
+            font-size: 16px;
             text-align: center;
         }
 
@@ -118,6 +118,13 @@
         grid-header {
             font-size: 25px;
         }
+
+        .help-span {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+        }
     </style>
 </head>
 <body>
@@ -134,11 +141,17 @@
                         <Columns>
                             <asp:BoundField DataField="NoteId" HeaderText="Id" Visible="False" />
                             <asp:BoundField DataField="Username" HeaderText="Username" Visible="False" />
-                            <asp:ButtonField CommandName="select" DataTextField="Title" HeaderText="Title" Text="Button" Visible="True" HeaderStyle-CssClass="grid-header" ItemStyle-CssClass="grid-item" />
+                            <asp:ButtonField CommandName="select" DataTextField="Title" HeaderText="Titles of Notes" Text="Button" Visible="True" HeaderStyle-CssClass="grid-header" ItemStyle-CssClass="grid-item">
+                                <HeaderStyle CssClass="grid-header"></HeaderStyle>
+
+                                <ItemStyle CssClass="grid-item"></ItemStyle>
+                            </asp:ButtonField>
                             <asp:BoundField DataField="Text" HeaderText="Text" Visible="False" />
                         </Columns>
                     </asp:GridView>
+                    <span class="help-span">Click on a title to open note!</span>
                 </div>
+
 
                 <div class="center-div">
                     <asp:TextBox ID="titleBox" runat="server" CssClass="title-box" Visible="False"></asp:TextBox>
@@ -146,10 +159,20 @@
                 </div>
 
                 <div class="center-div btn-div">
+                    <asp:Button ID="newNoteBtn" runat="server" Text="Add New Note" CssClass="button" Visible="true" OnClick="newNoteBtn_Click" />
+                </div>
+
+                <div class="center-div btn-div">
                     <asp:Button ID="btnDelete" runat="server" Text="Delete" CssClass="button" OnClick="btnDelete_Click" Visible="False" />
                     <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="button" OnClick="btnUpdate_Click" Visible="False" />
                     <asp:Button ID="btnUnselect" runat="server" Text="Unselect" CssClass="button" Visible="false" OnClick="btnUnselect_Click" />
                 </div>
+
+                <div class="center-div btn-div">
+                    <asp:Button ID="cancelBtn" runat="server" Text="Cancel" CssClass="button" Visible="false" OnClick="cancelBtn_Click" />
+                    <asp:Button ID="addBtn" runat="server" Text="Add" CssClass="button" Visible="false" OnClick="addBtn_Click" />
+                </div>
+
                 <asp:Label ID="errorLabel" runat="server" Text="Label" Visible="False"></asp:Label>
             </div>
         </div>
