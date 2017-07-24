@@ -51,9 +51,8 @@ namespace NoteService
         {
             string constr = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(constr);
-            string insertQuery = "UPDATE Notes SET Title=@Title,Text=@Text Where NoteID=@NoteID";
-            SqlCommand cmd = new SqlCommand(insertQuery, con);
-            DataSet ds = new DataSet();
+            string updateQuery = "UPDATE Notes SET Title=@Title,Text=@Text Where NoteID=@NoteID";
+            SqlCommand cmd = new SqlCommand(updateQuery, con);
             cmd.Parameters.AddWithValue("@Title", title);
             cmd.Parameters.AddWithValue("@Text", text);
             cmd.Parameters.AddWithValue("@NoteID", NoteID);

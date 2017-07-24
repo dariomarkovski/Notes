@@ -119,17 +119,16 @@ namespace NotesWebApp
         {
             if (gvNotes.SelectedIndex != -1)
             {
-                if (gvNotes.SelectedIndex != -1)
+                string title = titleBox.Text;
+                string text = bodyBox.Text;
+                string id = gvNotes.DataKeys[gvNotes.SelectedIndex].Values["NoteId"].ToString();
+                NoteService.NoteServiceSoapClient noteServiceClient = new NoteService.NoteServiceSoapClient();
+                if (noteServiceClient.UpdateNote(title.Trim(), text.Trim(), id.Trim()))
                 {
-                    string id = gvNotes.DataKeys[gvNotes.SelectedIndex].Values["NoteId"].ToString();
-                    string title = titleBox.Text;
-                    NoteService.NoteServiceSoapClient noteServiceClient = new NoteService.NoteServiceSoapClient();
-                    if (noteServiceClient.UpdateNote(title, bodyBox.Text, id))
-                    {
-                        filGridView();
-                    }
+                    filGridView();
                 }
             }
+           
         }
 
         protected void btnUnselect_Click(object sender, EventArgs e)
