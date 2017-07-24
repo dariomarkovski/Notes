@@ -47,7 +47,7 @@ namespace NoteService
         }
 
         [WebMethod]
-        public bool UpdateNote(DateTime time, String title, String text, String NoteID)
+        public bool UpdateNote(String title, String text, String NoteID)
         {
             string constr = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(constr);
@@ -56,7 +56,6 @@ namespace NoteService
             DataSet ds = new DataSet();
             cmd.Parameters.AddWithValue("@Title", title);
             cmd.Parameters.AddWithValue("@Text", text);
-            // cmd.Parameters.AddWithValue("@LastModified", time);
             cmd.Parameters.AddWithValue("@NoteID", NoteID);
             try
             {

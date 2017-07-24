@@ -129,23 +129,19 @@ namespace NotesWebApp.NoteService {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class UpdateNoteRequestBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public System.DateTime time;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
         public string title;
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
         public string text;
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
         public string NoteID;
         
         public UpdateNoteRequestBody() {
         }
         
-        public UpdateNoteRequestBody(System.DateTime time, string title, string text, string NoteID) {
-            this.time = time;
+        public UpdateNoteRequestBody(string title, string text, string NoteID) {
             this.title = title;
             this.text = text;
             this.NoteID = NoteID;
@@ -247,10 +243,9 @@ namespace NotesWebApp.NoteService {
             return base.Channel.UpdateNote(request);
         }
         
-        public bool UpdateNote(System.DateTime time, string title, string text, string NoteID) {
+        public bool UpdateNote(string title, string text, string NoteID) {
             NotesWebApp.NoteService.UpdateNoteRequest inValue = new NotesWebApp.NoteService.UpdateNoteRequest();
             inValue.Body = new NotesWebApp.NoteService.UpdateNoteRequestBody();
-            inValue.Body.time = time;
             inValue.Body.title = title;
             inValue.Body.text = text;
             inValue.Body.NoteID = NoteID;
@@ -263,10 +258,9 @@ namespace NotesWebApp.NoteService {
             return base.Channel.UpdateNoteAsync(request);
         }
         
-        public System.Threading.Tasks.Task<NotesWebApp.NoteService.UpdateNoteResponse> UpdateNoteAsync(System.DateTime time, string title, string text, string NoteID) {
+        public System.Threading.Tasks.Task<NotesWebApp.NoteService.UpdateNoteResponse> UpdateNoteAsync(string title, string text, string NoteID) {
             NotesWebApp.NoteService.UpdateNoteRequest inValue = new NotesWebApp.NoteService.UpdateNoteRequest();
             inValue.Body = new NotesWebApp.NoteService.UpdateNoteRequestBody();
-            inValue.Body.time = time;
             inValue.Body.title = title;
             inValue.Body.text = text;
             inValue.Body.NoteID = NoteID;
