@@ -21,6 +21,13 @@ namespace NotesWebApp.NoteService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertNote", ReplyAction="*")]
         System.Threading.Tasks.Task<NotesWebApp.NoteService.InsertNoteResponse> InsertNoteAsync(NotesWebApp.NoteService.InsertNoteRequest request);
+        
+        // CODEGEN: Generating message contract since element name title from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateNote", ReplyAction="*")]
+        NotesWebApp.NoteService.UpdateNoteResponse UpdateNote(NotesWebApp.NoteService.UpdateNoteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateNote", ReplyAction="*")]
+        System.Threading.Tasks.Task<NotesWebApp.NoteService.UpdateNoteResponse> UpdateNoteAsync(NotesWebApp.NoteService.UpdateNoteRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -99,6 +106,86 @@ namespace NotesWebApp.NoteService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateNoteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateNote", Namespace="http://tempuri.org/", Order=0)]
+        public NotesWebApp.NoteService.UpdateNoteRequestBody Body;
+        
+        public UpdateNoteRequest() {
+        }
+        
+        public UpdateNoteRequest(NotesWebApp.NoteService.UpdateNoteRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdateNoteRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public System.DateTime time;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string title;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string text;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string NoteID;
+        
+        public UpdateNoteRequestBody() {
+        }
+        
+        public UpdateNoteRequestBody(System.DateTime time, string title, string text, string NoteID) {
+            this.time = time;
+            this.title = title;
+            this.text = text;
+            this.NoteID = NoteID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateNoteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateNoteResponse", Namespace="http://tempuri.org/", Order=0)]
+        public NotesWebApp.NoteService.UpdateNoteResponseBody Body;
+        
+        public UpdateNoteResponse() {
+        }
+        
+        public UpdateNoteResponse(NotesWebApp.NoteService.UpdateNoteResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdateNoteResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool UpdateNoteResult;
+        
+        public UpdateNoteResponseBody() {
+        }
+        
+        public UpdateNoteResponseBody(bool UpdateNoteResult) {
+            this.UpdateNoteResult = UpdateNoteResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface NoteServiceSoapChannel : NotesWebApp.NoteService.NoteServiceSoap, System.ServiceModel.IClientChannel {
     }
@@ -153,6 +240,37 @@ namespace NotesWebApp.NoteService {
             inValue.Body.title = title;
             inValue.Body.text = text;
             return ((NotesWebApp.NoteService.NoteServiceSoap)(this)).InsertNoteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        NotesWebApp.NoteService.UpdateNoteResponse NotesWebApp.NoteService.NoteServiceSoap.UpdateNote(NotesWebApp.NoteService.UpdateNoteRequest request) {
+            return base.Channel.UpdateNote(request);
+        }
+        
+        public bool UpdateNote(System.DateTime time, string title, string text, string NoteID) {
+            NotesWebApp.NoteService.UpdateNoteRequest inValue = new NotesWebApp.NoteService.UpdateNoteRequest();
+            inValue.Body = new NotesWebApp.NoteService.UpdateNoteRequestBody();
+            inValue.Body.time = time;
+            inValue.Body.title = title;
+            inValue.Body.text = text;
+            inValue.Body.NoteID = NoteID;
+            NotesWebApp.NoteService.UpdateNoteResponse retVal = ((NotesWebApp.NoteService.NoteServiceSoap)(this)).UpdateNote(inValue);
+            return retVal.Body.UpdateNoteResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<NotesWebApp.NoteService.UpdateNoteResponse> NotesWebApp.NoteService.NoteServiceSoap.UpdateNoteAsync(NotesWebApp.NoteService.UpdateNoteRequest request) {
+            return base.Channel.UpdateNoteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<NotesWebApp.NoteService.UpdateNoteResponse> UpdateNoteAsync(System.DateTime time, string title, string text, string NoteID) {
+            NotesWebApp.NoteService.UpdateNoteRequest inValue = new NotesWebApp.NoteService.UpdateNoteRequest();
+            inValue.Body = new NotesWebApp.NoteService.UpdateNoteRequestBody();
+            inValue.Body.time = time;
+            inValue.Body.title = title;
+            inValue.Body.text = text;
+            inValue.Body.NoteID = NoteID;
+            return ((NotesWebApp.NoteService.NoteServiceSoap)(this)).UpdateNoteAsync(inValue);
         }
     }
 }

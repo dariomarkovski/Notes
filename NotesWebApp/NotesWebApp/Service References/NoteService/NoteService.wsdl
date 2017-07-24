@@ -18,6 +18,23 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="UpdateNote">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="time" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NoteID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateNoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateNoteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="InsertNoteSoapIn">
@@ -26,10 +43,20 @@
   <wsdl:message name="InsertNoteSoapOut">
     <wsdl:part name="parameters" element="tns:InsertNoteResponse" />
   </wsdl:message>
+  <wsdl:message name="UpdateNoteSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateNote" />
+  </wsdl:message>
+  <wsdl:message name="UpdateNoteSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateNoteResponse" />
+  </wsdl:message>
   <wsdl:portType name="NoteServiceSoap">
     <wsdl:operation name="InsertNote">
       <wsdl:input message="tns:InsertNoteSoapIn" />
       <wsdl:output message="tns:InsertNoteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNote">
+      <wsdl:input message="tns:UpdateNoteSoapIn" />
+      <wsdl:output message="tns:UpdateNoteSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NoteServiceSoap" type="tns:NoteServiceSoap">
@@ -43,11 +70,29 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateNote">
+      <soap:operation soapAction="http://tempuri.org/UpdateNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="NoteServiceSoap12" type="tns:NoteServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="InsertNote">
       <soap12:operation soapAction="http://tempuri.org/InsertNote" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNote">
+      <soap12:operation soapAction="http://tempuri.org/UpdateNote" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

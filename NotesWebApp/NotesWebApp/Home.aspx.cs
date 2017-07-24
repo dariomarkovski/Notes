@@ -117,7 +117,19 @@ namespace NotesWebApp
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (gvNotes.SelectedIndex != -1)
+            {
+                string id = gvNotes.DataKeys[gvNotes.SelectedIndex].Values["NoteId"].ToString();
+                string title = gvNotes.DataKeys[gvNotes.SelectedIndex].Values["Title"].ToString();
+                DateTime date = DateTime.Now;
+                NoteService.NoteServiceSoapClient noteServiceClient = new NoteService.NoteServiceSoapClient();
+                if (noteServiceClient.UpdateNote(date, title, bodyBox.Text, id))
+                {
+                    filGridView();
 
+                    //lastModifiedBox.Text = date.ToString("dd/MM/yyyy HH:mm"); ;
+                }
+            }
         }
 
         protected void btnUnselect_Click(object sender, EventArgs e)

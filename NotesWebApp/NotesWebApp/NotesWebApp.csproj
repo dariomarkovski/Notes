@@ -75,6 +75,9 @@
     <Content Include="Service References\NoteService\NotesWebApp.NoteService.InsertNoteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\NoteService\NotesWebApp.NoteService.UpdateNoteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

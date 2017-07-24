@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -43,6 +44,35 @@ namespace NoteService
             {
                 con.Close();
             }
+        }
+
+        [WebMethod]
+        public bool UpdateNote(DateTime time, String title, String text, String NoteID)
+        {
+            string constr = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            SqlConnection con = new SqlConnection(constr);
+            string insertQuery = "UPDATE Notes SET Title=@Title,Text=@Text Where NoteID=@NoteID";
+            SqlCommand cmd = new SqlCommand(insertQuery, con);
+            DataSet ds = new DataSet();
+            cmd.Parameters.AddWithValue("@Title", title);
+            cmd.Parameters.AddWithValue("@Text", text);
+            // cmd.Parameters.AddWithValue("@LastModified", time);
+            cmd.Parameters.AddWithValue("@NoteID", NoteID);
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+
         }
     }
 }
