@@ -2,6 +2,27 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="FillData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FillDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FillDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="InsertNote">
         <s:complexType>
           <s:sequence>
@@ -50,6 +71,12 @@
       </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="FillDataSoapIn">
+    <wsdl:part name="parameters" element="tns:FillData" />
+  </wsdl:message>
+  <wsdl:message name="FillDataSoapOut">
+    <wsdl:part name="parameters" element="tns:FillDataResponse" />
+  </wsdl:message>
   <wsdl:message name="InsertNoteSoapIn">
     <wsdl:part name="parameters" element="tns:InsertNote" />
   </wsdl:message>
@@ -69,6 +96,10 @@
     <wsdl:part name="parameters" element="tns:DeleteNoteResponse" />
   </wsdl:message>
   <wsdl:portType name="NoteServiceSoap">
+    <wsdl:operation name="FillData">
+      <wsdl:input message="tns:FillDataSoapIn" />
+      <wsdl:output message="tns:FillDataSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="InsertNote">
       <wsdl:input message="tns:InsertNoteSoapIn" />
       <wsdl:output message="tns:InsertNoteSoapOut" />
@@ -84,6 +115,15 @@
   </wsdl:portType>
   <wsdl:binding name="NoteServiceSoap" type="tns:NoteServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FillData">
+      <soap:operation soapAction="http://tempuri.org/FillData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="InsertNote">
       <soap:operation soapAction="http://tempuri.org/InsertNote" style="document" />
       <wsdl:input>
@@ -114,6 +154,15 @@
   </wsdl:binding>
   <wsdl:binding name="NoteServiceSoap12" type="tns:NoteServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FillData">
+      <soap12:operation soapAction="http://tempuri.org/FillData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="InsertNote">
       <soap12:operation soapAction="http://tempuri.org/InsertNote" style="document" />
       <wsdl:input>

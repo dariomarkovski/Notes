@@ -21,6 +21,34 @@ namespace NoteService
     {
 
         [WebMethod]
+        public DataSet FillData(string username)
+        {
+            string constr = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            string selectQuery = "SELECT * from Notes WHERE username=@username";
+            SqlConnection con = new SqlConnection(constr);
+            SqlCommand cmd = new SqlCommand(selectQuery, con);
+            cmd.Parameters.AddWithValue("@username", username);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            try
+            {
+                con.Open();
+                adapter.Fill(ds, "Notes");
+            }
+            catch (Exception ex)
+            {
+                /*
+                 Error
+                 */
+            }
+            finally
+            {
+                con.Close();
+            }
+            return ds;
+        }
+
+        [WebMethod]
         public bool InsertNote(string username, string title, string text)
         {
             string constr = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;

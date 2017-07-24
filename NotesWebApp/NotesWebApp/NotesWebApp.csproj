@@ -71,16 +71,8 @@
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
+    <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Service References\NoteService\NoteService.wsdl" />
-    <Content Include="Service References\NoteService\NotesWebApp.NoteService.InsertNoteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\NoteService\NotesWebApp.NoteService.UpdateNoteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\NoteService\NotesWebApp.NoteService.DeleteNoteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

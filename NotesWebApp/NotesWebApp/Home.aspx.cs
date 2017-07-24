@@ -35,31 +35,11 @@ namespace NotesWebApp
 
         private void filGridView()
         {
-            string constr = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
-            string selectQuery = "SELECT * from Notes WHERE username=@username";
-            SqlConnection con = new SqlConnection(constr);
-            SqlCommand cmd = new SqlCommand(selectQuery, con);
-            cmd.Parameters.AddWithValue("@username", Session["username"].ToString());
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            try
-            {
-                con.Open();
-                adapter.Fill(ds, "Notes");
-                gvNotes.DataSource = ds.Tables["Notes"];
-                gvNotes.DataBind();
-                ViewState["ds"] = ds;
-            }
-            catch (Exception ex)
-            {
-                errorLabel.Text = ex.Message;
-                errorLabel.Visible = true;
-            }
-            finally
-            {
-                con.Close();
-            }
-
+            NoteService.NoteServiceSoapClient noteServiceClient = new NoteService.NoteServiceSoapClient();
+            DataSet ds = noteServiceClient.FillData(Session["username"].ToString());
+            gvNotes.DataSource = ds.Tables["Notes"];
+            gvNotes.DataBind();
+            ViewState["ds"] = ds;
         }
 
         protected void logoutButton_Click(object sender, EventArgs e)
