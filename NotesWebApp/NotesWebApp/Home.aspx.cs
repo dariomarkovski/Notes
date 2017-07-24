@@ -84,26 +84,12 @@ namespace NotesWebApp
             if (gvNotes.SelectedIndex != -1)
             {
                 string id = gvNotes.DataKeys[gvNotes.SelectedIndex].Values["NoteId"].ToString();
-                string constr = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
-                SqlConnection con = new SqlConnection(constr);
-                string deleteQuery = "DELETE FROM Notes WHERE NoteId=@id";
-                SqlCommand cmd = new SqlCommand(deleteQuery, con);
-                cmd.Parameters.AddWithValue("@id", id);
-                try
+                NoteService.NoteServiceSoapClient noteServiceClient = new NoteService.NoteServiceSoapClient();
+                if (noteServiceClient.DeleteNote(id.Trim()))
                 {
-                    con.Open();
-                    cmd.ExecuteNonQuery();
                     filGridView();
                     gvNotes.SelectedIndex = -1;
                     unselected();
-                }
-                catch (Exception ex)
-                {
-                    errorLabel.Text = ex.Message;
-                }
-                finally
-                {
-                    con.Close();
                 }
             }
         }

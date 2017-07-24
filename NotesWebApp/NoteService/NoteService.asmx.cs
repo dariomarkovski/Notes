@@ -70,8 +70,32 @@ namespace NoteService
             {
                 con.Close();
             }
-
         }
+
+        [WebMethod]
+        public bool DeleteNote(String NoteID)
+        {
+            string constr = ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
+            SqlConnection con = new SqlConnection(constr);
+            string deleteQuery = "DELETE FROM Notes WHERE NoteID=@NoteID";
+            SqlCommand cmd = new SqlCommand(deleteQuery, con);
+            cmd.Parameters.AddWithValue("@NoteID", NoteID);
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
     }
 }
 

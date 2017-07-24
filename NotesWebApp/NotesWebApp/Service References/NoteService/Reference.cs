@@ -28,6 +28,13 @@ namespace NotesWebApp.NoteService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateNote", ReplyAction="*")]
         System.Threading.Tasks.Task<NotesWebApp.NoteService.UpdateNoteResponse> UpdateNoteAsync(NotesWebApp.NoteService.UpdateNoteRequest request);
+        
+        // CODEGEN: Generating message contract since element name NoteID from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteNote", ReplyAction="*")]
+        NotesWebApp.NoteService.DeleteNoteResponse DeleteNote(NotesWebApp.NoteService.DeleteNoteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteNote", ReplyAction="*")]
+        System.Threading.Tasks.Task<NotesWebApp.NoteService.DeleteNoteResponse> DeleteNoteAsync(NotesWebApp.NoteService.DeleteNoteRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -182,6 +189,74 @@ namespace NotesWebApp.NoteService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class DeleteNoteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeleteNote", Namespace="http://tempuri.org/", Order=0)]
+        public NotesWebApp.NoteService.DeleteNoteRequestBody Body;
+        
+        public DeleteNoteRequest() {
+        }
+        
+        public DeleteNoteRequest(NotesWebApp.NoteService.DeleteNoteRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class DeleteNoteRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string NoteID;
+        
+        public DeleteNoteRequestBody() {
+        }
+        
+        public DeleteNoteRequestBody(string NoteID) {
+            this.NoteID = NoteID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class DeleteNoteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeleteNoteResponse", Namespace="http://tempuri.org/", Order=0)]
+        public NotesWebApp.NoteService.DeleteNoteResponseBody Body;
+        
+        public DeleteNoteResponse() {
+        }
+        
+        public DeleteNoteResponse(NotesWebApp.NoteService.DeleteNoteResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class DeleteNoteResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool DeleteNoteResult;
+        
+        public DeleteNoteResponseBody() {
+        }
+        
+        public DeleteNoteResponseBody(bool DeleteNoteResult) {
+            this.DeleteNoteResult = DeleteNoteResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface NoteServiceSoapChannel : NotesWebApp.NoteService.NoteServiceSoap, System.ServiceModel.IClientChannel {
     }
@@ -265,6 +340,31 @@ namespace NotesWebApp.NoteService {
             inValue.Body.text = text;
             inValue.Body.NoteID = NoteID;
             return ((NotesWebApp.NoteService.NoteServiceSoap)(this)).UpdateNoteAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        NotesWebApp.NoteService.DeleteNoteResponse NotesWebApp.NoteService.NoteServiceSoap.DeleteNote(NotesWebApp.NoteService.DeleteNoteRequest request) {
+            return base.Channel.DeleteNote(request);
+        }
+        
+        public bool DeleteNote(string NoteID) {
+            NotesWebApp.NoteService.DeleteNoteRequest inValue = new NotesWebApp.NoteService.DeleteNoteRequest();
+            inValue.Body = new NotesWebApp.NoteService.DeleteNoteRequestBody();
+            inValue.Body.NoteID = NoteID;
+            NotesWebApp.NoteService.DeleteNoteResponse retVal = ((NotesWebApp.NoteService.NoteServiceSoap)(this)).DeleteNote(inValue);
+            return retVal.Body.DeleteNoteResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<NotesWebApp.NoteService.DeleteNoteResponse> NotesWebApp.NoteService.NoteServiceSoap.DeleteNoteAsync(NotesWebApp.NoteService.DeleteNoteRequest request) {
+            return base.Channel.DeleteNoteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<NotesWebApp.NoteService.DeleteNoteResponse> DeleteNoteAsync(string NoteID) {
+            NotesWebApp.NoteService.DeleteNoteRequest inValue = new NotesWebApp.NoteService.DeleteNoteRequest();
+            inValue.Body = new NotesWebApp.NoteService.DeleteNoteRequestBody();
+            inValue.Body.NoteID = NoteID;
+            return ((NotesWebApp.NoteService.NoteServiceSoap)(this)).DeleteNoteAsync(inValue);
         }
     }
 }
