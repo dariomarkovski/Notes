@@ -127,5 +127,10 @@ namespace NotesWebApp
                 }
             }
         }
+
+        protected void configButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Config.aspx");
+        }
     }
 }

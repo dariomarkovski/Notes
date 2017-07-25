@@ -12,6 +12,7 @@
         <div>
             <div class="header-wrap">
                 <asp:Label ID="usernameLabel" runat="server" Text="Label" CssClass="header-element-username"></asp:Label>
+                <asp:Button ID="configButton" runat="server" Text="Config" CssClass="header-element-config" OnClick="configButton_Click" />
                 <asp:Button ID="logoutButton" runat="server" Text="Logout" OnClick="logoutButton_Click" CssClass="header-element-logout" />
             </div>
             <div class="body-wrap">

@@ -10,7 +10,7 @@
 namespace NotesWebApp {
     
     
-    public partial class Home {
+    public partial class Config {
         
         /// <summary>
         /// form1 control.
@@ -49,93 +49,102 @@ namespace NotesWebApp {
         protected global::System.Web.UI.WebControls.Button logoutButton;
         
         /// <summary>
-        /// gvNotes control.
+        /// currPwLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvNotes;
+        protected global::System.Web.UI.WebControls.Label currPwLabel;
         
         /// <summary>
-        /// titleBox control.
+        /// currPwTb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox titleBox;
+        protected global::System.Web.UI.WebControls.TextBox currPwTb;
         
         /// <summary>
-        /// bodyBox control.
+        /// currPwError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox bodyBox;
+        protected global::System.Web.UI.WebControls.Label currPwError;
         
         /// <summary>
-        /// newNoteBtn control.
+        /// newPwLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button newNoteBtn;
+        protected global::System.Web.UI.WebControls.Label newPwLabel;
         
         /// <summary>
-        /// btnDelete control.
+        /// newPwTb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDelete;
+        protected global::System.Web.UI.WebControls.TextBox newPwTb;
         
         /// <summary>
-        /// btnUpdate control.
+        /// confirmNewPwLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
+        protected global::System.Web.UI.WebControls.Label confirmNewPwLabel;
         
         /// <summary>
-        /// btnUnselect control.
+        /// confirmNewPwTb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUnselect;
+        protected global::System.Web.UI.WebControls.TextBox confirmNewPwTb;
         
         /// <summary>
-        /// cancelBtn control.
+        /// newPwMatchError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button cancelBtn;
+        protected global::System.Web.UI.WebControls.Label newPwMatchError;
         
         /// <summary>
-        /// addBtn control.
+        /// cancelButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addBtn;
+        protected global::System.Web.UI.WebControls.Button cancelButton;
         
         /// <summary>
-        /// errorLabel control.
+        /// confirmBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label errorLabel;
+        protected global::System.Web.UI.WebControls.Button confirmBtn;
+        
+        /// <summary>
+        /// pwChangeLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label pwChangeLabel;
     }
 }

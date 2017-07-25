@@ -14,8 +14,26 @@
 }
 
 .header-element-username {
+    font-weight:600;
     display: block;
 }
+
+.header-element-config {
+    display: block;
+    border: none;
+    background: inherit;
+    color: white;
+    font-size: 20px;
+    padding: 0px;
+    margin-right: 20px;
+    margin-left: auto;
+    font-weight:600;
+}
+
+    .header-element-config:hover {
+        cursor: pointer;
+        color: lightgray;
+    }
 
 .header-element-logout {
     display: block;
@@ -24,6 +42,8 @@
     color: white;
     font-size: 20px;
     padding: 0px;
+    margin-left:20px;
+    font-weight:600;
 }
 
     .header-element-logout:hover {
