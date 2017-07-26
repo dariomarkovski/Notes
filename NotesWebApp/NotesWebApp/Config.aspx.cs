@@ -50,6 +50,9 @@ namespace NotesWebApp
                     if (changePw(newPwTb.Text))
                     {
                         pwChangeLabel.Text = "Password changed succesfully!";
+                        currPwTb.Text = "";
+                        newPwTb.Text = "";
+                        confirmNewPwTb.Text = "";
                     }
                     else
                     {
