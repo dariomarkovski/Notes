@@ -26,12 +26,14 @@
                 <div class="register-wrap-body-element">
                     <asp:Label ID="newPwLabel" runat="server" CssClass="label-element">New Password</asp:Label>
                     <asp:TextBox ID="newPwTb" runat="server" CssClass="input-text-box"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="newPwTb" ErrorMessage="required" ForeColor="Red" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="newPwTb" ErrorMessage="required" ForeColor="Red" Display="Dynamic" />
+                    <asp:CompareValidator runat="server" ControlToCompare="currPwTb" ControlToValidate="newPwTb" Display="Dynamic" ErrorMessage="New password cannot match old password!" ForeColor="Red" Operator="NotEqual"></asp:CompareValidator>
                 </div>
                 <div class="register-wrap-body-element">
                     <asp:Label ID="confirmNewPwLabel" runat="server" CssClass="label-element">Confirm New Password</asp:Label>
                     <asp:TextBox ID="confirmNewPwTb" runat="server" CssClass="input-text-box"></asp:TextBox>
-                    <asp:Label ID="newPwMatchError" runat="server" ForeColor="Red"></asp:Label>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="confirmNewPwTb" ErrorMessage="required" ForeColor="Red" Display="Dynamic" />
+                    <asp:CompareValidator runat="server" ControlToCompare="newPwTb" ControlToValidate="confirmNewPwTb" Display="Dynamic" ErrorMessage="New password doesn't match!" ForeColor="Red"></asp:CompareValidator>
                 </div>
                 <div class="register-wrap-body-element">
                     <asp:Button ID="cancelButton" runat="server" Text="Cancel" CssClass="button" CausesValidation="False" OnClick="cancelButton_Click" />

@@ -27,7 +27,8 @@
                 <div class="register-wrap-body-element">
                     <asp:Label ID="confirmLabel" runat="server" CssClass="label-element">Confirm Password</asp:Label>
                     <asp:TextBox ID="confirmTextBox" runat="server" CssClass="input-text-box" TextMode="Password"></asp:TextBox>
-                    <asp:CompareValidator runat="server" ControlToValidate="confirmTextBox" ControlToCompare="passTextBox" ErrorMessage="Password don't match!" ForeColor="Red" />
+                    <asp:CompareValidator runat="server" ControlToValidate="confirmTextBox" ControlToCompare="passTextBox" ErrorMessage="Password don't match!" ForeColor="Red" Display="Dynamic" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="confirmTextBox" Display="Dynamic" ErrorMessage="required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
                 <div class="register-wrap-body-element">
                     <asp:Label ID="emailLabel" runat="server" CssClass="label-element">Email</asp:Label>

@@ -11,6 +11,8 @@ namespace NotesWebApp
 {
     public partial class Config : System.Web.UI.Page
     {
+        protected string currPassword;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["username"] == null)
@@ -20,6 +22,7 @@ namespace NotesWebApp
             else
             {
                 usernameLabel.Text = Session["username"].ToString();
+                currPassword = getCurrentPassword();
             }
         }
 
@@ -44,24 +47,16 @@ namespace NotesWebApp
             if (checkCurrPw(currPwTb.Text))
             {
                 currPwError.Text = "";
-                if (matchingNewPw(newPwTb.Text, confirmNewPwTb.Text)) 
+                if (changePw(newPwTb.Text))
                 {
-                    newPwMatchError.Text = "";
-                    if (changePw(newPwTb.Text))
-                    {
-                        pwChangeLabel.Text = "Password changed succesfully!";
-                        currPwTb.Text = "";
-                        newPwTb.Text = "";
-                        confirmNewPwTb.Text = "";
-                    }
-                    else
-                    {
-                        pwChangeLabel.Text = "Password wasn't changed!";
-                    }
+                    pwChangeLabel.Text = "Password changed succesfully!";
+                    currPwTb.Text = "";
+                    newPwTb.Text = "";
+                    confirmNewPwTb.Text = "";
                 }
                 else
                 {
-                    newPwMatchError.Text = "New password doesn't match!";
+                    pwChangeLabel.Text = "Password wasn't changed!";
                 }
             }
             else
@@ -70,7 +65,7 @@ namespace NotesWebApp
             }
         }
 
-        protected bool checkCurrPw(string guess)
+        protected string getCurrentPassword()
         {
             string username = Session["username"].ToString();
             string password = "";
@@ -91,29 +86,18 @@ namespace NotesWebApp
             catch (Exception ex)
             {
                 // username not found
-                return false;
+                return null;
             }
             finally
             {
                 con.Close();
             }
-
-            if (guess.Trim().Equals(password.Trim()))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return password;
         }
 
-        protected bool matchingNewPw(string newPw, string confirmedPw)
+        protected bool checkCurrPw(string guess)
         {
-            if (newPw.Trim().Equals(confirmedPw.Trim()))
-                return true;
-            else
-                return false;
+            return (guess.Trim().Equals(currPassword.Trim()));
         }
 
         protected bool changePw(string newPassword)
