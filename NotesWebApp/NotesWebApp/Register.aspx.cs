@@ -41,7 +41,7 @@ namespace NotesWebApp
                 switch (userId)
                 {
                     case -1:
-                        message = "Username already exists.\\nPlease choose a different username.";
+                        message = "Username already exists. Please choose a different username.";
                         break;
                     case -2:
                         message = "Supplied email address has already been used.";

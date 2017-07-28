@@ -17,23 +17,23 @@
                 <div class="register-wrap-body-element">
                     <asp:Label ID="usernameLabel" runat="server" CssClass="label-element">Username</asp:Label>
                     <asp:TextBox ID="usernameTextBox" runat="server" CssClass="input-text-box"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="usernameTextBox" ErrorMessage="required" ForeColor="Red" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="usernameTextBox" ErrorMessage="Required" ForeColor="Red" Display="Dynamic" />
                 </div>
                 <div class="register-wrap-body-element">
                     <asp:Label ID="passLabel" runat="server" CssClass="label-element">Password</asp:Label>
                     <asp:TextBox ID="passTextBox" runat="server" CssClass="input-text-box" TextMode="Password"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="passTextBox" ErrorMessage="required" ForeColor="Red" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="passTextBox" ErrorMessage="Required" ForeColor="Red" Display="Dynamic" />
                 </div>
                 <div class="register-wrap-body-element">
                     <asp:Label ID="confirmLabel" runat="server" CssClass="label-element">Confirm Password</asp:Label>
                     <asp:TextBox ID="confirmTextBox" runat="server" CssClass="input-text-box" TextMode="Password"></asp:TextBox>
                     <asp:CompareValidator runat="server" ControlToValidate="confirmTextBox" ControlToCompare="passTextBox" ErrorMessage="Password don't match!" ForeColor="Red" Display="Dynamic" />
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="confirmTextBox" Display="Dynamic" ErrorMessage="required" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="confirmTextBox" Display="Dynamic" ErrorMessage="Required" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
                 <div class="register-wrap-body-element">
                     <asp:Label ID="emailLabel" runat="server" CssClass="label-element">Email</asp:Label>
                     <asp:TextBox ID="emailTextBox" runat="server" CssClass="input-text-box"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="emailTextBox" ErrorMessage="required" ForeColor="Red" />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="emailTextBox" ErrorMessage="Required" ForeColor="Red" Display="Dynamic" />
                 </div>
                 <div class="register-wrap-body-element">
                     <asp:Button ID="cancelButton" runat="server" Text="Cancel" CssClass="button" CausesValidation="False" OnClick="cancelButton_Click" />
